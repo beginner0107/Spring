@@ -1,7 +1,7 @@
 <h2>1. Servlet과 Model로 회원관리 만들기(MVC01)</h2>
 
 * Eclipse(GovFrameWork)
-* JDK 11
+* JDK 8
 * MYSQL 5.6.21
 <br><br>
 
@@ -47,3 +47,35 @@ create table member(
 -> Read는 PrintWriter를 이용, Redirect 부분은 HttpServletResponse 객체를 이용해 처리. 
 <br><br>
 <h2>2. MVC Model 1 구조로 회원관리 만들기 (MVC02)</h2>
+* Eclipse(GovFrameWork)
+* JDK 8
+* MYSQL 5.6.21
+<br><br>
+<h3>요구사항</h3>
+1. 회원 가입<br>
+2. 회원 목록<br>
+3. 회원 정보 수정<br>
+4. 회원 탈퇴<br>
+5. 회원 상세 보기<br>
+<br>
+<h3>Member Table</h3>
+
+```sql
+-- member table 생성
+create table member(
+ num int primary key auto_increment,
+ id varchar(20) not null,
+ pass varchar(20) not null,
+ name varchar(30) not null,
+ age int not null,
+ email varchar(30) not null,
+ phone varchar(30) not null,
+ unique key(id)
+);
+```
+<br>
+<h3>:memo:구조</h3>
+<p>
+ 
+</p>
+<br>

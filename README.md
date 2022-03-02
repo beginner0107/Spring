@@ -1,4 +1,4 @@
-<h1>Servlet과 Model로 회원관리 만들기</h1>
+<h1>1. Servlet과 Model로 회원관리 만들기</h1>
 
 * Eclipse(GovFrameWork)
 * JDK 11

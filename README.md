@@ -47,9 +47,9 @@ create table member(
 -> Read는 PrintWriter를 이용, Redirect 부분은 HttpServletResponse 객체를 이용해 처리. 
 <br><br><br>
 <h2>2. MVC Model 1 구조로 회원관리 만들기 (MVC02)</h2>
-* Eclipse(GovFrameWork)
-* JDK 8
-* MYSQL 5.6.21
+* Eclipse(GovFrameWork)<br>
+* JDK 8<br>
+* MYSQL 5.6.21<br>
 <br><br>
 <h3>요구사항</h3>
 1. 회원 가입<br>

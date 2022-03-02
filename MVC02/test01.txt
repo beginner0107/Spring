@@ -1,0 +1,36 @@
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+public class test01_jsp extends HttpServlet{
+
+ public int hap(int s, int e){
+	int sum = 0;
+	for(int i=s; i<=e; i++){
+		sum+=i;
+	}
+	return sum;
+	}
+  public void service(HttpServletRequest request, HttpServletResponse response)
+					throws ServletException, IOException{
+       int sum = 0;
+	for(int i = 1; i<=10; i++){
+		sum += i;
+	}
+
+    response.setContentType("text/html;charset=uft-8");
+    PrintWriter out = response.getWriter();
+    // 두수 사이의 총합을 구하는 메서드
+   out.println("<!DOCTYPE html>");
+   out.println("<html>");
+   out.println("<head>");
+   out.println("<meta charset="UTF-8">");
+   out.println("<title>test</title>");
+   out.println("</head>");
+   out.println("<body>");
+   out.println("1~10까지의 총합 = "+sum+"<br>");
+   out.println("55~350까지의 총합 = "+hap(55, 350)+");
+</body>
+</html>
+
+  }
+}

@@ -134,7 +134,7 @@ create table member(
 <br>
 
 <h3>MODEL 2 구동원리</h3>
-* Client 요청 -> HttpServlet을 상속받은 개별의 컨트롤러가 요청을 받는다 -><br>
+* Client 요청 -> HttpServlet을 상속받은 개별의 컨트롤러가 요청을 받는다<br>
  -> Controller는 원하는 데이터를 Model(MemberDAO)을 통해 가져오고 -> HttpServletRequest 객체에 담아 <br>
  -> RequestDispatcher 객체를 이용해 forward(객체 바인딩) 하여 원하는 Jsp에 데이터를 보낸 후 <br>
  -> request.getAttribute()해서 받거나, 또는 EL tag를 사용해서 {} 데이터를 View에 담아 <br>

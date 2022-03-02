@@ -82,7 +82,7 @@ create table member(
 1. JDBC를 통해 MYSQL과 연동 (MODEL) - MemberDAO<br>
 2. 데이터를 주고 받을 MemberVO 생성<br>
 3. JSP(<% %>스크립틀릿으로 작성)에서 Controller, View 역할을 담당한다. 
-<br>
+<br><br>
 <h3>Model1 구동원리</h3>
 * Client 요청(JSP) -> JSP를 해석하여 Java코드로 변환시키고 MemberDAO와 연동하여 데이터를 받아온다. <br>
 -> 받아온 데이터를 <%= %>를 통해 View를 완성 -> Client에게 응답. 
@@ -131,7 +131,7 @@ create table member(
 1. JDBC를 통해 MYSQL과 연동 (MODEL) - MemberDAO<br>
 2. 데이터를 주고 받을 MemberVO 생성<br>
 3. Client 요청을 받을 각각의 CRUD Controller 생성
-<br>
+<br><br>
 
 <h3>MODEL 2 구동원리</h3>
 * Client 요청 -> HttpServlet을 상속받은 개별의 컨트롤러가 요청을 받는다<br>

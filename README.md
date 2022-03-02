@@ -46,4 +46,4 @@ create table member(
 * Client 요청 -> HttpServlet을 상속받은 Controller(여러 개)를 호출 <br>
 -> Read는 PrintWriter를 이용, Redirect 부분은 HttpServletResponse 객체를 이용해 처리. 
 <br><br>
-<h2>2. MVC Model 1 구조로 회원관리 만들기</h2>
+<h2>2. MVC Model 1 구조로 회원관리 만들기 (MVC02)</h2>

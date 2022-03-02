@@ -76,6 +76,14 @@ create table member(
 <br>
 <h3>:memo:구조</h3>
 <p>
- 
+ <img width="229" alt="image" src="https://user-images.githubusercontent.com/81161819/156376065-7f9c4837-90d2-4ba8-b4c8-377dec070e1d.png">
 </p>
 <br>
+1. JDBC를 통해 MYSQL과 연동 (MODEL) - MemberDAO<br>
+2. 데이터를 주고 받을 MemberVO 생성<br>
+3. JSP(<% %>스크립틀릿으로 작성)에서 Controller, View 역할을 담당한다. 
+<br>
+<h3>Servlet 구동원리</h3>
+* Client 요청(JSP) -> JSP를 해석하여 Java코드로 변환시키고 MemberDAO와 연동하여 데이터를 받아온다. <br>
+-> 받아온 데이터를 <%= %>를 통해 View를 완성 -> Client에게 응답. 
+<br><br>

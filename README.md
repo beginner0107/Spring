@@ -31,6 +31,7 @@ create table member(
  unique key(id)
 );
 ```
+
 <br>
 <h3>:memo:구조</h3>
 <p>

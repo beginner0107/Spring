@@ -168,9 +168,9 @@ create table member(
 <br>
 1. JDBC를 통해 MYSQL과 연동 (MODEL) - MemberDAO<br>
 2. 데이터를 주고 받을 MemberVO 생성<br>
-3. Client에 요청이 오면 제일 먼저 그 요청을 받아 분석할 FrontController 생성
-4. 겹치는 부분 HttpServletRequest, HttpServletResponse 부분을 Interface로 빼고 (Controller)
-5. 개별 CRUD Controller 생성하고 implement 상속하여 사용한다. 
+3. Client에 요청이 오면 제일 먼저 그 요청을 받아 분석할 FrontController 생성<br>
+4. 겹치는 부분 HttpServletRequest, HttpServletResponse 부분을 Interface로 빼고 (Controller)<br>
+5. 개별 CRUD Controller 생성하고 implement 상속하여 사용한다. <br>
 <br><br>
 <h3>FrontController 구동원리</h3>
 * Client 요청 -> 제일 먼저 FrontController가 요청을 받아 분석

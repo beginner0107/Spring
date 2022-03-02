@@ -88,7 +88,7 @@ create table member(
 -> 받아온 데이터를 <%= %>를 통해 View를 완성 -> Client에게 응답. 
 <br><br>
 
-<h2>2. MVC MODEL 2 회원 관리(MVC03)</h2>
+<h2>3. MVC MODEL 2 회원 관리(MVC03)</h2>
 
 * Eclipse(GovFrameWork)
 * JDK 8<br>

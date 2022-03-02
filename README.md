@@ -16,7 +16,7 @@
 5. 회원 상세 보기<br>
 <br>
 
-<h3>[Member] Table</h3>
+<h3>Member Table</h3>
 
 ```sql
 -- member table 생성

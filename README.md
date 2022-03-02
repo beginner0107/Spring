@@ -147,9 +147,9 @@ create table member(
 
 
 <h2>4. FrontController와 POJO를 이용한 MVC변형 (MVC04)</h2>
-* Eclipse(GovFrameWork)
-* JDK 8<br>
-* MYSQL 5.6.21
+● Eclipse(GovFrameWork)<br>
+● JDK 8<br>
+● MYSQL 5.6.21
 <br><br>
 <h3>요구사항</h3>
 1. 회원 가입<br>
@@ -159,31 +159,20 @@ create table member(
 5. 회원 상세 보기<br>
 <br>
 <h3>Member Table</h3>
-
-```sql
--- member table 생성
-create table member(
- num int primary key auto_increment,
- id varchar(20) not null,
- pass varchar(20) not null,
- name varchar(30) not null,
- age int not null,
- email varchar(30) not null,
- phone varchar(30) not null,
- unique key(id)
-);
-```
+이전과 동일
 <br>
 <h3>:memo:구조</h3>
 <p>
- <img width="229" alt="image" src="https://user-images.githubusercontent.com/81161819/156376065-7f9c4837-90d2-4ba8-b4c8-377dec070e1d.png">
+<img width="224" alt="image" src="https://user-images.githubusercontent.com/81161819/156401086-8cbcf348-d237-45c5-95af-2d9537c0bcb9.png">
 </p>
 <br>
 1. JDBC를 통해 MYSQL과 연동 (MODEL) - MemberDAO<br>
 2. 데이터를 주고 받을 MemberVO 생성<br>
-3. JSP(<% %>스크립틀릿으로 작성)에서 Controller, View 역할을 담당한다. 
+3. Client에 요청이 오면 제일 먼저 그 요청을 받아 분석할 FrontController 생성
+4. 겹치는 부분 HttpServletRequest, HttpServletResponse 부분을 Interface로 빼고 (Controller)
+5. 개별 CRUD Controller 생성하고 implement 상속하여 사용한다. 
 <br><br>
-<h3>Model1 구동원리</h3>
-* Client 요청(JSP) -> JSP를 해석하여 Java코드로 변환시키고 MemberDAO와 연동하여 데이터를 받아온다. <br>
--> 받아온 데이터를 <%= %>를 통해 View를 완성 -> Client에게 응답. 
+<h3>FrontController 구동원리</h3>
+* Client 요청 -> 제일 먼저 FrontController가 요청을 받아 분석
+-> 
 <br><br>

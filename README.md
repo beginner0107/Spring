@@ -1,4 +1,4 @@
-<h2>1. Servlet과 Model로 회원관리 만들기(MVC01)</h2>
+<h2>1. Servlet과 Model 회원관리(MVC01)</h2>
 
 * Eclipse(GovFrameWork)
 * JDK 8
@@ -46,7 +46,7 @@ create table member(
 * Client 요청 -> HttpServlet을 상속받은 Controller(여러 개)를 호출 <br>
 -> Read는 PrintWriter를 이용, Redirect 부분은 HttpServletResponse 객체를 이용해 처리. 
 <br><br><br>
-<h2>2. MVC Model 1 구조로 회원관리 만들기 (MVC02)</h2>
+<h2>2. MVC Model 1 회원관리 (MVC02)</h2>
 * Eclipse(GovFrameWork)<br>
 * JDK 8<br>
 * MYSQL 5.6.21<br>

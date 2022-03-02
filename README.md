@@ -1,7 +1,7 @@
 <h2>1. Servlet과 Model로 회원관리 만들기(MVC01)</h2>
 
 * Eclipse(GovFrameWork)
-* JDK 11
+* JDK 8
 * MYSQL 5.6.21
 <br><br>
 
@@ -45,5 +45,45 @@ create table member(
 <h3>Servlet 구동원리</h3>
 * Client 요청 -> HttpServlet을 상속받은 Controller(여러 개)를 호출 <br>
 -> Read는 PrintWriter를 이용, Redirect 부분은 HttpServletResponse 객체를 이용해 처리. 
+<br><br><br>
+<h2>2. MVC Model 1 구조로 회원관리 만들기 (MVC02)</h2>
+* Eclipse(GovFrameWork)
+* JDK 8
+* MYSQL 5.6.21
 <br><br>
-<h2>2. MVC Model 1 구조로 회원관리 만들기</h2>
+<h3>요구사항</h3>
+1. 회원 가입<br>
+2. 회원 목록<br>
+3. 회원 정보 수정<br>
+4. 회원 탈퇴<br>
+5. 회원 상세 보기<br>
+<br>
+<h3>Member Table</h3>
+
+```sql
+-- member table 생성
+create table member(
+ num int primary key auto_increment,
+ id varchar(20) not null,
+ pass varchar(20) not null,
+ name varchar(30) not null,
+ age int not null,
+ email varchar(30) not null,
+ phone varchar(30) not null,
+ unique key(id)
+);
+```
+<br>
+<h3>:memo:구조</h3>
+<p>
+ <img width="229" alt="image" src="https://user-images.githubusercontent.com/81161819/156376065-7f9c4837-90d2-4ba8-b4c8-377dec070e1d.png">
+</p>
+<br>
+1. JDBC를 통해 MYSQL과 연동 (MODEL) - MemberDAO<br>
+2. 데이터를 주고 받을 MemberVO 생성<br>
+3. JSP(<% %>스크립틀릿으로 작성)에서 Controller, View 역할을 담당한다. 
+<br>
+<h3>Servlet 구동원리</h3>
+* Client 요청(JSP) -> JSP를 해석하여 Java코드로 변환시키고 MemberDAO와 연동하여 데이터를 받아온다. <br>
+-> 받아온 데이터를 <%= %>를 통해 View를 완성 -> Client에게 응답. 
+<br><br>

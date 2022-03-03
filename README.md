@@ -148,5 +148,38 @@ create table member(
 <br><br>
 <h3>FrontController 구동원리</h3>
 * Client 요청 -> 제일 먼저 FrontController가 요청을 받아 분석
--> 
+```Java
+@WebServlet("*.do")
+public class MemberFrontController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		// 클라이언트가 어떤 요청을 했는지 파악하기
+		String url = request.getRequestURI();
+//		System.out.println(url);
+		String ctx = request.getContextPath();
+//		System.out.println(ctx);
+		
+		// 실제로 요청한 명령이 무엇인지 파악
+		String command = url.substring(ctx.length());
+//		System.out.println(command);
+		// 요청에 따른 분기 작업
+		Controller controller = null;
+		String nextPage = null;
+		// forward, redirect
+		HandlerMapping mapping = new HandlerMapping();
+		controller = mapping.getController(command);
+		nextPage = controller.requestHandler(request, response);
+		if(nextPage!=null) {
+			if(nextPage.indexOf("redirect:")!=-1) {
+				response.sendRedirect(nextPage.split(":")[1]); // redirect
+			}else {
+				RequestDispatcher rd = request.getRequestDispatcher(ViewResolver.makeView(nextPage)); // forward
+				rd.forward(request, response);
+			}
+		}
+	}
+
+}
+```
 <br><br>

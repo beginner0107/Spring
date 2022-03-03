@@ -224,6 +224,7 @@ create table member(
 4. Client에 요청이 오면 제일 먼저 그 요청을 받아 분석할 FrontController 생성<br>
 5. 겹치는 부분 HttpServletRequest, HttpServletResponse 부분을 Interface로 빼고 (Controller)<br>
 6. 개별 CRUD Controller 생성하고 implement 상속하여 사용한다. <br>
+7. 기존에 WebContent(=webapp)안에 넣어 놓으면 누구든지 접근이 가능하기 때문에 보안 X -> WEB-INF 안에 넣어준다. 
 <br><br>
 <h3>추가된 부분</h3>
 1. MemberLoginController : request.getSession으로 세션을 가져오고 로그인이 성공하면 session.setAttribute<br>
@@ -280,4 +281,65 @@ create table member(
 2. FileGetController : 첨부파일 다운로드를 담당하는 Controller<br>
 3. FileDelController : 파일을 삭제 후 DB에 기록되어 있는 filename 삭제<br>
 4. MemberDbcheckController : 회원가입 할 때 중복 체크 해주는 Controller<br>
+<br><br>
+
+<h2>8. 기존에 했던 프로젝트 변환하기(POJO 하나로 - Spring Legacy Project)(SpringMVC01)</h2>
+● Eclipse(GovFrameWork)<br>
+● JDK 1.8<br>
+● MYSQL 5.6.21<br>
+● springframework version 3.1.1.RELEASE
+<br><br>
+<h3>:books: 사용 Library(pom.xml) :books:</h3>
+<pre>
+<code>
+		<!-- Gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.5</version>
+		</dependency>
+	<!-- Spring DB API -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.31</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.4.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>3.1.1.RELEASE</version>
+		</dependency>
+</code>
+</pre>
+<h3>요구사항</h3>
+이전과 동일(회원관리)
+<br>
+<h3>Member Table</h3>
+(MVC06과 동일)
+<br>
+<h3>:memo:구조</h3>
+<p>
+ <img width="181" alt="image" src="https://user-images.githubusercontent.com/81161819/156490488-0d620557-d714-4b96-a355-f00b3fb5e5a7.png">
+
+</p>
+<br>
+1. Controller를 하나로 만든다.(기존)<br>
+2. WEB-INF/mybatis 폴더 생성. config.xml(중요, 여기다가 위치 등록), db.properties 등록<br>
+3. 같은 패키지 이름으로 kr.bit.mybatis 안에 MemberMapper.xml
+<br><br>
+<h3>기존 dynamic Web Project와 다른 점(편리한 점)</h3>
+1. 여러개의 POJO를 하나로 줄일 수 있다. 메서드로 Mapping <br>
+2. servlet.context-xml 안에 ViewResolver가 구현<br>
+3. root.context-xml 안에 DB 설정<br>
+4. web.xml 접근 -> ContextLoaderListner가 root.context.xml 를 읽고 -> DispacherServlet이 servlet-context.xml을 읽고 DI작업을 해준다.(Bean 등록)
 <br><br>

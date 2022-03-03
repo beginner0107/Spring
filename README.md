@@ -370,3 +370,58 @@ create table member(
 &nbsp 2) response객체에 setContentLength, setContentType, setHeader 설정을 해준후<br><br>
 &nbsp 3) FileInputStream, OutputStream, byte[]buffer = new byte[104]; 파일을 읽어(input) 다운로드(Output) 해준다. <br><br>
 <br><br>
+	
+<h2>10. 게시판 CRUD(SpringMVC03)</h2>
+● Eclipse(GovFrameWork)<br>
+● JDK 1.8<br>
+● MYSQL 5.6.21<br>
+● springframework version 3.1.1.RELEASE
+<br><br>
+<h3>:books: 사용 Library(pom.xml) :books:</h3>
+<p>
+<ul>
+		<li>gson 2.8.5</li>
+		<li>mysql-connector-java 5.1.31</li>
+		<li>mybatis 3.4.5</li>
+		<li>mybatis-spring 1.3.0</li>
+		<li>spring-jdbc 3.1.1.RELEASE</li>
+		<li>javax.servlet 3.1.0</li>
+	<li>jackson-databind 2.6.3</li>
+	<li>jackson-mapper-asl 1.9.13</li>
+	<li>commons-fileupload 1.2.1</li>
+	<li>commons-io 1.4</li>
+</ul>
+</p>
+<h3>요구사항</h3>
+1. 게시글 리스트<br>
+2. 게시글 상세보기<br>
+3. 게시글 삭제, 수정<br>
+4. 조회수 누적<br>
+<br>
+<h3>Board Table</h3>
+<pre>
+<code>
+create table tb_board(
+	idx int not null auto_increment, -- 자동증가(아이디)
+	title varchar(100) not null, -- 제목
+	contents varchar(4000) not null, -- 내용
+	count int, -- 조회수
+	writer varchar(30) not null, -- 작성자
+	indate datetime default now() not null, -- 등록일
+	primary key(idx)
+)
+</code>
+</pre>
+<br>
+<h3>:memo:구조</h3>
+<p>
+<img width="196" alt="image" src="https://user-images.githubusercontent.com/81161819/156504130-bbdf0276-011d-45cb-bcc8-7d4ee7afa850.png">
+</p>
+<br><br>
+<h3>SpringMVC03 이전 프로젝트와 다른 부분</h3>
+1. 비즈니스 로직를 처리하는 Service클래스를 만들어서 사용한다. <br><br>
+2. 조회수는 보통 쿠키를 이용해서 처리하지만 여기서는 간단하게 만들었기 때문에 조회수가 새로고침 시 계속 증가한다는 단점을 가지고 있다. <br><br>
+
+
+
+

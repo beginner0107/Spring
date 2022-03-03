@@ -161,9 +161,9 @@ create table member(
 ● MYSQL 5.6.21
 <br><br>
 <h3>:books: 사용 Library :books:</h3>
-● mysql-connector-java-5.1.31.jar
-● mybatis-3.4.6.jar
-● jstl-1.2.jar
+● mysql-connector-java-5.1.31.jar<br>
+● mybatis-3.4.6.jar<br>
+● jstl-1.2.jar<br>
 
 <h3>요구사항</h3>
 1. 회원 가입<br>

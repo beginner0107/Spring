@@ -147,9 +147,9 @@ create table member(
 5. 개별 CRUD Controller 생성하고 implement 상속하여 사용한다. <br>
 <br><br>
 <h3>FrontController 구동원리</h3>
-* Client 요청 -> 제일 먼저 FrontController가 요청을 받아 분석
--> 요청에 따른 분기 작업 -> HandlerMapping은 HashMap으로 이루어져 있어 요청이 넘어오면 분기해서 알맞은 Controller를 Return 
--> CRUD 작업이 이루어지고 JSP 페이지의 이름을 다시 FrontController로 넘겨준다 
--> redirect와 forward를 분기하고 forward는 RequestDispatcher를 이용하여 이루어진다
+* Client 요청 -> 제일 먼저 FrontController가 요청을 받아 분석<br>
+-> 요청에 따른 분기 작업 -> HandlerMapping은 HashMap으로 이루어져 있어 요청이 넘어오면 분기해서 알맞은 Controller를 Return <br>
+-> CRUD 작업이 이루어지고 JSP 페이지의 이름을 다시 FrontController로 넘겨준다 <br>
+-> redirect와 forward를 분기하고 forward는 RequestDispatcher를 이용하여 이루어진다<br>
 (ViewResolver가 "/WEB-INF/member/" + nextPage + ".jsp" 이런 형식으로 만들어 requestDispatcher(여기)에 넣어주게 된다) 
 <br><br>

@@ -453,7 +453,7 @@ create table tb_board(
 6. 회원 상세보기<br>
 7. 회원 삭제, 수정(본인인 경우에만 가능)<br>
 <br>
-<h3>Board Table</h3>
+<h3>Table</h3>
 <pre>
 <code>
 create table tb_board(

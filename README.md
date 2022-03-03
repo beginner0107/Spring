@@ -334,12 +334,12 @@ create table member(
 </p>
 <br>
 1. Controller를 하나로 만든다.(기존)<br>
-2. WEB-INF/mybatis 폴더 생성. config.xml(중요, 여기다가 위치 등록), db.properties 등록<br>
+2. WEB-INF/mybatis 폴더 생성. config.xml, db.properties 등록<br>
 3. 같은 패키지 이름으로 kr.bit.mybatis 안에 MemberMapper.xml
 <br><br>
 <h3>기존 dynamic Web Project와 다른 점(편리한 점)</h3>
 1. 여러개의 POJO를 하나로 줄일 수 있다. 메서드로 Mapping <br>
 2. servlet.context-xml 안에 ViewResolver가 구현<br>
-3. root.context-xml 안에 DB 설정<br>
+3. root.context-xml 안에 DB 설정(configLocation, mapperLocation등록)<br>
 4. web.xml 접근 -> ContextLoaderListner가 root.context.xml 를 읽고 -> DispacherServlet이 servlet-context.xml을 읽고 DI작업을 해준다.(Bean 등록)
 <br><br>

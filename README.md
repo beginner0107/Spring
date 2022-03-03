@@ -226,6 +226,6 @@ create table member(
 6. 개별 CRUD Controller 생성하고 implement 상속하여 사용한다. <br>
 <br><br>
 <h3>추가된 부분</h3>
-1. MemberLoginController : request.getSession으로 세션을 가져오고 로그인이 성공하면 session.setAttribute
+1. MemberLoginController : request.getSession으로 세션을 가져오고 로그인이 성공하면 session.setAttribute<br>
 2. MemberLogoutContorller : request.getSession().invalidate() 세션을 제거하면서 로그인 로그아웃 기능 
 <br><br>

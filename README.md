@@ -229,3 +229,55 @@ create table member(
 1. MemberLoginController : request.getSession으로 세션을 가져오고 로그인이 성공하면 session.setAttribute<br>
 2. MemberLogoutContorller : request.getSession().invalidate() 세션을 제거하면서 로그인 로그아웃 기능 
 <br><br>
+
+
+<h2>7. Ajax기술을 이용한 회원관리 및 파일 업로드 기능 구현 (MVC07)</h2>
+● Eclipse(GovFrameWork)<br>
+● JDK 8<br>
+● MYSQL 5.6.21
+<br><br>
+<h3>:books: 사용 Library :books:</h3>
+● mysql-connector-java-5.1.31.jar<br>
+● mybatis-3.4.6.jar<br>
+● jstl-1.2.jar<br>
+● gson-2.8.5.jar<br>
+● jstl-1.2.jar<br>
+● commons-fileupload-1.3.3.jar<br>
+● commons-io-2.6.jar<br>
+
+<h3>요구사항</h3>
+1. 회원 가입<br>
+2. 회원 목록<br>
+3. 회원 정보 수정<br>
+4. 회원 탈퇴<br>
+5. 회원 상세 보기<br>
+<br>
+<h3>Member Table</h3>
+<pre>
+<code>
+create table member(
+ num int primary key auto_increment,
+ id varchar(20) not null,
+ pass varchar(20) not null,
+ name varchar(30) not null,
+ age int not null,
+ email varchar(30) not null,
+ phone varchar(30) not null,
+ filename varchar(100),
+ unique key(id)
+);
+</code>
+</pre>
+<br>
+<h3>:memo:구조</h3>
+<p>
+<img width="224" alt="image" src="https://user-images.githubusercontent.com/81161819/156485231-f1d50eb5-1e0c-4124-ac12-113abaf1ed9b.png"></p>
+<br>
+(MVC06)과 동일
+<br><br>
+<h3>추가된 부분</h3>
+1. FileAddController : DiskFileItemFactory, ServletFileUpload 사용하여 파일 저장하고 파일 이름을 ajax로 return 
+2. FileGetController : 첨부파일 다운로드를 담당하는 Controller
+3. FileDelController : 파일을 삭제 후 DB에 기록되어 있는 filename 삭제
+4. MemberDbcheckController : 회원가입 할 때 중복 체크 해주는 Controller
+<br><br>

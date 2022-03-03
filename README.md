@@ -423,5 +423,68 @@ create table tb_board(
 2. 조회수는 보통 쿠키를 이용해서 처리하지만 여기서는 간단하게 만들었기 때문에 조회수가 새로고침 시 계속 증가한다는 단점을 가지고 있다. <br><br>
 
 
-
+<h2>11. 게시판 CRUD + 회원관리(SpringMVC05)</h2>
+● Eclipse(GovFrameWork)<br>
+● JDK 1.8<br>
+● MYSQL 5.6.21<br>
+● springframework version 3.1.1.RELEASE
+<br><br>
+<h3>:books: 사용 Library(pom.xml) :books:</h3>
+<p>
+<ul>
+		<li>gson 2.8.5</li>
+		<li>mysql-connector-java 5.1.31</li>
+		<li>mybatis 3.4.5</li>
+		<li>mybatis-spring 1.3.0</li>
+		<li>spring-jdbc 3.1.1.RELEASE</li>
+		<li>javax.servlet 3.1.0</li>
+	<li>jackson-databind 2.6.3</li>
+	<li>jackson-mapper-asl 1.9.13</li>
+	<li>commons-fileupload 1.2.1</li>
+	<li>commons-io 1.4</li>
+</ul>
+</p>
+<h3>요구사항</h3>
+1. 게시글 리스트, 비회원, 회원 모두 접근 가능<br>
+2. 게시글 상세보기, 비회원, 회원 모두 접근 가능<br>
+3. 게시글 삭제, 수정, 본인일 경우에만 삭제, 수정 가능<br>
+4. 조회수 누적, 쿠키를 사용해서 24시간 유지<br>
+5. 회원 가입 
+6. 회원 상세보기
+7. 회원 삭제, 수정(본인인 경우에만 가능)
+<br>
+<h3>Board Table</h3>
+<pre>
+<code>
+create table tb_board(
+	idx int not null auto_increment, -- 자동증가(아이디)
+	title varchar(100) not null, -- 제목
+	contents varchar(4000) not null, -- 내용
+	count int, -- 조회수
+	writer varchar(30) not null, -- 작성자
+	indate datetime default now() not null, -- 등록일
+	primary key(idx)
+)
+create table member1(
+ num int primary key auto_increment,
+ id varchar(20) not null,
+ pass varchar(20) not null,
+ name varchar(30) not null,
+ age int not null,
+ email varchar(30) not null,
+ phone varchar(30) not null,
+ filename varchar(100),
+ unique key(id)
+)
+</code>
+</pre>
+<br>
+<h3>:memo:구조</h3>
+<p>
+<img width="212" alt="image" src="https://user-images.githubusercontent.com/81161819/156505608-04dd5b80-bf22-42a3-8c44-f56f74571033.png">
+</p>
+<br><br>
+<h3>SpringMVC05 이전 프로젝트와 다른 부분</h3>
+1. 다른 점이 있다기 보다 {sessionScope.userId} seseionScope으로 가입된 상태를 유지하고 게시글 글을 작성하고 수정, 삭제가 가능하게 만들었다. <br><br>
+2. 조회수를 쿠키를 통해 해결하였다. <br><br>
 

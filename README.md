@@ -290,37 +290,35 @@ create table member(
 ● springframework version 3.1.1.RELEASE
 <br><br>
 <h3>:books: 사용 Library(pom.xml) :books:</h3>
-<pre>
-<code>
-		<!-- Gson -->
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>2.8.5</version>
-		</dependency>
-	<!-- Spring DB API -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.31</version>
-		</dependency>
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis</artifactId>
-			<version>3.4.5</version>
-		</dependency>
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis-spring</artifactId>
-			<version>1.3.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-			<version>3.1.1.RELEASE</version>
-		</dependency>
-</code>
-</pre>
+<p>
+		<!-- Gson --><br>
+		<dependency><br>
+			<groupId>com.google.code.gson</groupId><br>
+			<artifactId>gson</artifactId><br>
+			<version>2.8.5</version><br>
+		</dependency><br>
+	<!-- Spring DB API --><br>
+		<dependency><br>
+			<groupId>mysql</groupId><br>
+			<artifactId>mysql-connector-java</artifactId><br>
+			<version>5.1.31</version><br>
+		</dependency><br>
+		<dependency><br>
+			<groupId>org.mybatis</groupId><br>
+			<artifactId>mybatis</artifactId><br>
+			<version>3.4.5</version><br>
+		</dependency><br>
+		<dependency><br>
+			<groupId>org.mybatis</groupId><br>
+			<artifactId>mybatis-spring</artifactId><br>
+			<version>1.3.0</version><br>
+		</dependency><br>
+		<dependency><br>
+			<groupId>org.springframework</groupId><br>
+			<artifactId>spring-jdbc</artifactId><br>
+			<version>3.1.1.RELEASE</version><br>
+		</dependency><br>
+</p>
 <h3>요구사항</h3>
 이전과 동일(회원관리)
 <br>

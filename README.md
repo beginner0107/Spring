@@ -192,3 +192,40 @@ create table member(
 <h3>FrontController 구동원리</h3>
 (MVC04)와 동일
 <br><br>
+
+
+<h2>6. Session을 이용한 로그인 처리 (MVC06)</h2>
+● Eclipse(GovFrameWork)<br>
+● JDK 8<br>
+● MYSQL 5.6.21
+<br><br>
+<h3>:books: 사용 Library :books:</h3>
+● mysql-connector-java-5.1.31.jar<br>
+● mybatis-3.4.6.jar<br>
+● jstl-1.2.jar<br>
+
+<h3>요구사항</h3>
+1. 회원 가입<br>
+2. 회원 목록<br>
+3. 회원 정보 수정<br>
+4. 회원 탈퇴<br>
+5. 회원 상세 보기<br>
+<br>
+<h3>Member Table</h3>
+이전과 동일
+<br>
+<h3>:memo:구조</h3>
+<p>
+<img width="218" alt="image" src="https://user-images.githubusercontent.com/81161819/156481455-730c2d47-76be-48b8-9712-e3c7cfe076ca.png"></p>
+<br>
+1. Mybatis framework를 통해 MYSQL과 연동 (MODEL) - MemberDAO<br>
+2. config.xml, db.properties, MemberMapper.xml 생성.<br>
+3. 데이터를 주고 받을 MemberVO 생성<br>
+4. Client에 요청이 오면 제일 먼저 그 요청을 받아 분석할 FrontController 생성<br>
+5. 겹치는 부분 HttpServletRequest, HttpServletResponse 부분을 Interface로 빼고 (Controller)<br>
+6. 개별 CRUD Controller 생성하고 implement 상속하여 사용한다. <br>
+<br><br>
+<h3>추가된 부분</h3>
+1. MemberLoginController : request.getSession으로 세션을 가져오고 로그인이 성공하면 session.setAttribute
+2. MemberLogoutContorller : request.getSession().invalidate() 세션을 제거하면서 로그인 로그아웃 기능 
+<br><br>

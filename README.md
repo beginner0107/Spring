@@ -276,8 +276,8 @@ create table member(
 (MVC06)과 동일
 <br><br>
 <h3>추가된 부분</h3>
-1. FileAddController : DiskFileItemFactory, ServletFileUpload 사용하여 파일 저장하고 파일 이름을 ajax로 return 
-2. FileGetController : 첨부파일 다운로드를 담당하는 Controller
-3. FileDelController : 파일을 삭제 후 DB에 기록되어 있는 filename 삭제
-4. MemberDbcheckController : 회원가입 할 때 중복 체크 해주는 Controller
+1. FileAddController : DiskFileItemFactory, ServletFileUpload 사용하여 파일 저장하고 파일 이름을 ajax로 return <br>
+2. FileGetController : 첨부파일 다운로드를 담당하는 Controller<br>
+3. FileDelController : 파일을 삭제 후 DB에 기록되어 있는 filename 삭제<br>
+4. MemberDbcheckController : 회원가입 할 때 중복 체크 해주는 Controller<br>
 <br><br>

@@ -60,20 +60,7 @@ create table member(
 5. 회원 상세 보기<br>
 <br>
 <h3>Member Table</h3>
-
-```sql
--- member table 생성
-create table member(
- num int primary key auto_increment,
- id varchar(20) not null,
- pass varchar(20) not null,
- name varchar(30) not null,
- age int not null,
- email varchar(30) not null,
- phone varchar(30) not null,
- unique key(id)
-);
-```
+이전과 동일
 <br>
 <h3>:memo:구조</h3>
 <p>
@@ -109,20 +96,7 @@ create table member(
 <br>
 
 <h3>Member Table</h3>
-
-```sql
--- member table 생성
-create table member(
- num int primary key auto_increment,
- id varchar(20) not null,
- pass varchar(20) not null,
- name varchar(30) not null,
- age int not null,
- email varchar(30) not null,
- phone varchar(30) not null,
- unique key(id)
-);
-```
+이전과 동일
 <br>
 <h3>:memo:구조</h3>
 <p>

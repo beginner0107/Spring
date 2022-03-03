@@ -291,33 +291,13 @@ create table member(
 <br><br>
 <h3>:books: 사용 Library(pom.xml) :books:</h3>
 <p>
-		<!-- Gson --><br>
-		<dependency><br>
-			<groupId>com.google.code.gson</groupId><br>
-			<artifactId>gson</artifactId><br>
-			<version>2.8.5</version><br>
-		</dependency><br>
-	<!-- Spring DB API --><br>
-		<dependency><br>
-			<groupId>mysql</groupId><br>
-			<artifactId>mysql-connector-java</artifactId><br>
-			<version>5.1.31</version><br>
-		</dependency><br>
-		<dependency><br>
-			<groupId>org.mybatis</groupId><br>
-			<artifactId>mybatis</artifactId><br>
-			<version>3.4.5</version><br>
-		</dependency><br>
-		<dependency><br>
-			<groupId>org.mybatis</groupId><br>
-			<artifactId>mybatis-spring</artifactId><br>
-			<version>1.3.0</version><br>
-		</dependency><br>
-		<dependency><br>
-			<groupId>org.springframework</groupId><br>
-			<artifactId>spring-jdbc</artifactId><br>
-			<version>3.1.1.RELEASE</version><br>
-		</dependency><br>
+	<ul>
+		<li>gson 2.8.5</li>
+		<li>mysql-connector-java 5.1.31</li>
+		<li>mybatis 3.4.5</li>
+		<li>mybatis-spring 1.3.0</li>
+		<li>spring-jdbc 3.1.1.RELEASE</li>
+		</ul>
 </p>
 <h3>요구사항</h3>
 이전과 동일(회원관리)
@@ -340,4 +320,53 @@ create table member(
 2. servlet.context-xml 안에 ViewResolver가 구현<br>
 3. root.context-xml 안에 DB 설정(configLocation, mapperLocation등록)<br>
 4. web.xml 접근 -> ContextLoaderListner가 root.context.xml 를 읽고 -> DispacherServlet이 servlet-context.xml을 읽고 DI작업을 해준다.(Bean 등록)
+<br><br>
+
+
+<h2>9. Mybatis 사용법 2가지, 다중파일업로드(SpringMVC02)</h2>
+● Eclipse(GovFrameWork)<br>
+● JDK 1.8<br>
+● MYSQL 5.6.21<br>
+● springframework version 3.1.1.RELEASE
+<br><br>
+<h3>:books: 사용 Library(pom.xml) :books:</h3>
+<p>
+<ul>
+		<li>gson 2.8.5</li>
+		<li>mysql-connector-java 5.1.31</li>
+		<li>mybatis 3.4.5</li>
+		<li>mybatis-spring 1.3.0</li>
+		<li>spring-jdbc 3.1.1.RELEASE</li>
+		<li>javax.servlet 3.1.0</li>
+	<li>jackson-databind 2.6.3</li>
+	<li>jackson-mapper-asl 1.9.13</li>
+	<li>commons-fileupload 1.2.1</li>
+	<li>commons-io 1.4</li>
+</ul>
+</p>
+<h3>요구사항</h3>
+이전과 동일(회원관리)
+<br>
+<h3>Member Table</h3>
+(MVC06과 동일)
+<br>
+<h3>:memo:구조</h3>
+<p>
+<img width="203" alt="image" src="https://user-images.githubusercontent.com/81161819/156498855-6a970583-eef8-4903-a7f1-5333d4c901a6.png">
+</p>
+<br><br>
+<h3>SpringMVC02에 추가된 부분</h3>
+1. Mapper를 설정하는 두가지 방법 <br><br>
+&nbsp 1) MemberMapper class와 MemberMapper.xml을 같은 위치에다가 놓고 sessionFacotry에 dataSource, configLocation, mapperLocation 등록<br><br>
+&nbsp 2) MemberMapper class를 생성하고 어노테이션 @Select, @Insert, @Update("query"), root-context.xml -> sessionFactory에 mapperLocation빼고 등록<br><br>
+2. Commons 파일 업로드<br><br>
+&nbsp 1) uploadForm에서 다중파일을 업로드(enctype="multipart/form-data" -> Enumeration<String> e = multipartRequest.getParameterNames()<br><br>
+&nbsp 2) HashMap에 속성(id,name)과 값(id="값", name="값")들을 저장.<br> <br>
+&nbsp 3) 파일을 담고 있는 파라메터 읽어오기 Iterator it = multipartRequest.getFileNames();<br><br>
+&nbsp 4) 반복문을 돌려 List에 파일 이름을 담는다. <br><br>
+&nbsp 5) 파일의 업로드된 파일이름(getOriginalFilename)을 List에 저장하고 2)에서 만들었던 HashMap에 리스트를 넣는다.<br><br>
+3. 다운로드<br><br>
+&nbsp 1) filename을 매개변수로 받고<br><br>
+&nbsp 2) response객체에 setContentLength, setContentType, setHeader 설정을 해준후<br><br>
+&nbsp 3) FileInputStream, OutputStream, byte[]buffer = new byte[104]; 파일을 읽어(input) 다운로드(Output) 해준다. <br><br>
 <br><br>
